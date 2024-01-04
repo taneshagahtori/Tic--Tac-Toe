@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #7E30E1, #E26EE5 );
+}
+
+.board{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin: 0 50px;
+}
+
+.board .dropbox{
+    position: relative;
+    width: 140px;
+    height: 140px;
+    border-left: 4px solid #fff;
+    border-bottom: 4px solid #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board .dropbox:nth-child(3),
+.board .dropbox:nth-child(6),
+.board .dropbox:nth-child(9){
+    border-right: none;
+}
+.board .dropbox:nth-child(7),
+.board .dropbox:nth-child(8),
+.board .dropbox:nth-child(9){
+    border-bottom: none;
+}
+.board .dropbox:nth-child(1),
+.board .dropbox:nth-child(4),
+.board .dropbox:nth-child(7){
+    border-left: none;
+}
+
+.board .dropbox div{
+    pointer-events: none;
+    scale: 1.5;
+}
+
+.drag{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 420px;
+    width: 100px;
+    gap: 10px;
+    margin: 0 40px;
+    cursor: grap;
+}
+
+.drag .dragbox{
+    padding: 15px;
+    background: rgba(255,255,255,0.1);
+}
+
+.cross{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cross::before{
+    content: '';
+    position:absolute;
+    width: 5px;
+    height: 100%;
+    background: #fff;
+    transform: rotate(45deg);
+}
+
+.cross::after{
+    content: '';
+    position:absolute;
+    width: 100%;
+    height: 5px;
+    background: #fff;
+    transform: rotate(45deg);
+}
+
+.circle{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: 5px solid #fff;
+    border-radius: 50%;
+}
+
+.reset{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 25px;
+    border: none;
+    outline: none;
+    background:black;
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
